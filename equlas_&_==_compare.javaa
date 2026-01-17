@@ -1,0 +1,6 @@
+String a = "hello";
+String b = "hello";
+String c = new String("hello");
+System.out.println(a == b);    // TRUE  as both pointing to the same address/reference
+System.out.println(a == c);    // False as c address is different than a
+System.out.println(a.equals(c));  // TRUE as both content are equal
