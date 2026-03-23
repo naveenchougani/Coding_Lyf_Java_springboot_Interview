@@ -197,7 +197,11 @@ public class Main {
 //Parent static block
 // child static block
 // A instance block : 20
-// B show : 0
+// B show : 0   // Because A constructor has show method and its 
+                // B object created so B's show method called..
+                // But B constructor is not yet called.. but new keyword is allocated memory to instance variables with default values
+                // hence x value here shows 0
+
 // B instance block show: 10
 // B construcor:
 
