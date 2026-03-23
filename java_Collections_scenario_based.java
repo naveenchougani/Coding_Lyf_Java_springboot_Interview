@@ -24,6 +24,19 @@
             }
         }
 
+        // Another way is passing a list into set implementation constructor
+         List<String> list = List.of("https://example.com","https://google.com","https://example.com","https://openai.com"); 
+        //list.add("hello");  unsupported exception as List.of() is unmodifieable. No edit, no add
+         List<String> list1= Arrays.asList("https://example.com","https://google.com","https://example.com","https://openai.com");
+        // list1.add("hello"); you can only modify.. but not add . Edit Yes, no add
+         List<String> list2=new ArrayList<>(Arrays.asList("https://example.com","https://google.com","https://example.com","https://openai.com"));
+        //list2.add("hello"); modifieable list
+         List<String> list3=new ArrayList<>(List.of("https://example.com","https://google.com","https://example.com","https://openai.com"));
+        //list3.add("hello"); modifieable list              
+                
+        Set<String> recentUrls = new LinkedHashSet<>(list1 or list2 or list3);
+        System.out.println(recentUrls);
+
 ===============================================================================================================
 
 //Q2.  You are building a leaderboard where player names are keys and scores are values. You need 
