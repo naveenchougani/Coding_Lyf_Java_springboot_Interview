@@ -159,6 +159,32 @@ for (String key : map.keySet()) {
         
     }
 }
+
+// some caveats:
+        List<Integer> list=new ArrayList<>(List.of(1,2,3,4,5,6));
+        for(int i=0;i<list.size();i++) {
+                if(list.get(i)<6) {              
+                     list.remove(i);
+                   }
+             }  
+                // op: 2,4,6. Because at every removal.. list shifts its values to left or lower index.
+                // as soon as you remove , in the current loop, values has been changes at the index..
+                // as soon as value changed in the current index, you loose the chance to remove it.
+    
+                     for(int i=list.size()-1;i>=0;i--){
+                         if(list.get(i)<6){
+                             list.remove(i);
+                         }
+                     }  // op:6 
+                // The "un-iterated" values (indices 0, 1, 2, 3,4) never move. They stay exactly where they are.
+                // as i always decreases and in sync with the indexes not yet checked
+                // if i is at 4th index and removes 5, and 6 will come into 4th index
+                // now at this stage i will move to 3,2,1,0 indexes... and 
+                // values do exist at that places.. hence no issues
+                        // if a value changes.. or removed.. then values always shifts from right to left.. that is. last to first
+                        // like as soon as 5 is delted, 6 will moved its place, and i now looks into 4.. and goes..
+                        //so the right comes into the current removed index.. but as it is already visited no problem... 
+                        //and i keeps on going backward.. so no problem..
     
 ===============================================================================================================
 
